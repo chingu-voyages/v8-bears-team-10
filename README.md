@@ -1,3 +1,18 @@
+# Project Tech Stack
+
+## Frontend 
+
+- React ( with Create React App )
+- Redux
+- Styled Components
+
+## Backend
+
+- Express.js
+- Database
+- Socket.io
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
