@@ -5,7 +5,7 @@ import Modal from "./Modal";
 const modals = ["inventory", "journal", "player", "help"];
 
 const renderModals = () => {
-  return modals.map(modal => <Modal type={modal} />);
+  return modals.map((modal, index) => <Modal key={index} type={modal} />);
 };
 
 const ModalContainer = () => {
