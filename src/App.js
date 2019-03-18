@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 // Component Imports
 import Bar from './components/UI/Bar/Bar';
+import Chat from './components/UI/Chat/Chat';
 import ModalContainer from './components/UI/Modal/ModalContainer';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
 				<Bar />
 
 				<ModalContainer />
+				<Chat />
 			</Container>
 		);
 	}

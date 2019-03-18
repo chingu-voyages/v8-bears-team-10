@@ -28,4 +28,5 @@ const Container = styled.div`
 		'help player';
 	position: absolute;
 	box-sizing: border-box;
+	z-index: 100;
 `;
