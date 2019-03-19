@@ -38,15 +38,16 @@ class Chat extends Component {
 	render() {
 		return (
 			<Container>
-				{' '}
-				<Title>Chat</Title>
-				<Messages>{this.renderMessages()}</Messages>
-				<Input>
+					<Input>
 					<input id="textToSend" type="text" />
 					<button className="button" onClick={this.onSend}>
 						Send
 					</button>
 				</Input>
+				{' '}
+				<Title>Chat</Title>
+				<Messages>{this.renderMessages()}</Messages>
+			
 			</Container>
 		);
 	}
@@ -72,6 +73,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	z-index: 20;
 `;
 
 const Messages = styled.div`
@@ -85,4 +87,5 @@ const Messages = styled.div`
 
 const Input = styled.div`
 	padding: 5px;
+
 `;
