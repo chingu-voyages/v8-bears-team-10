@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const chat = require('./socket/chat');
 const auth = require('./authentication/auth');
+const player = require('./routes/player');
 
 app.use(
 	bodyParser.urlencoded({
@@ -31,6 +32,8 @@ const io = require('socket.io')(server);
 app.use('/api/chat', require('./routes/chat')(io, chat));
 app.use('/api/auth', auth);
 app.use('/api/register', auth);
+
+app.use('/api/player', require('./routes/player'));
 
 //launch
 server.listen(port, function() {
