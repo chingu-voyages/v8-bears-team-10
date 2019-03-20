@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 import styled from 'styled-components';
 const io = require('socket.io-client');
-const socket = io('http://localhost:3001/');
+var socket
 class Chat extends Component {
 	constructor(props) {
+		socket = io('http://localhost:3001/');
 		super(props);
 		this.onSend = this.onSend.bind(this);
 		this.state = {
-			messages: ['tes']
+			messages: []
 		};
 		socket.on('message_received', message => {
 			console.log('rec', message);
@@ -31,8 +32,8 @@ class Chat extends Component {
 	}
 
 	renderMessages() {
-		return this.state.messages.map(message => {
-			return <p>{message}</p>;
+		return this.state.messages.map((message,index) => {
+			return <p key = {index}>{message}</p>;
 		});
 	}
 	render() {

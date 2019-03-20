@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// Component Imports
-import Bar from './components/UI/Bar/Bar';
-import Chat from './components/UI/Chat/Chat';
-import ModalContainer from './components/UI/Modal/ModalContainer';
+
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
+import Game from './components/Game/Game';
 
 class App extends Component {
 	render() {
@@ -15,16 +13,8 @@ class App extends Component {
 					<Route path="/" exact component={LandingPage} />
 
 					<Route
-						path="/game"
-						render={props => (
-							<>
-								<GameView />
-								<Bar />
-
-								<ModalContainer />
-								<Chat />
-							</>
-						)}
+						path="/game/:id"
+						component ={Game}
 					/>
 				</Container>
 			</Router>
@@ -41,12 +31,6 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	margin: 0 auto;
+	margin: 10px auto 0 auto;
 `;
 
-const GameView = styled.div`
-	border: 1px solid gray;
-	display: flex;
-	flex: 1;
-	margin: 10px 0;
-`;

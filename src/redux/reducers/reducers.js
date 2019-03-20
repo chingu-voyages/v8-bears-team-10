@@ -1,45 +1,44 @@
 export const gameState = (
-	state = {
-		activeModals: {
-			inventory: true,
-			player: false,
-			help: false,
-			journal: false
-		}
-	},
-	action
+  state = {
+    activeModals: {
+      inventory: true,
+      player: false,
+      help: false,
+      journal: false
+    }
+  },
+  action
 ) => {
-	switch (action.type) {
-		case 'TOGGLE_MODAL':
-			console.log(action);
-			return {
-				...state,
-				activeModals: {
-					...state.activeModals,
-					[action.payload]: !state.activeModals[action.payload]
-				}
-			};
+  switch (action.type) {
+    case "TOGGLE_MODAL":
+      return {
+        ...state,
+        activeModals: {
+          ...state.activeModals,
+          [action.payload]: !state.activeModals[action.payload]
+        }
+      };
 
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 };
 
 export const userState = (
-	state = {
-		user: {},
-		isAuthenticated: true
-	},
-	action
+  state = {
+    user: {},
+    isAuthenticated: true
+  },
+  action
 ) => {
-	switch (action.type) {
-		case 'SET_AUTHENTICATED':
-			return {
-				...state,
-				isAuthenticated: action.payload
-			};
+  switch (action.type) {
+    case "SET_AUTHENTICATED":
+      return {
+        ...state,
+        isAuthenticated: action.payload
+      };
 
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 };

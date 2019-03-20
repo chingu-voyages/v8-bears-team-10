@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+// will need to get instances and data from server
 const fakeInstances = [1, 2, 3];
 class GameInstances extends Component {
 	render() {
@@ -7,10 +9,10 @@ class GameInstances extends Component {
 			<Container>
 				{fakeInstances.map(instance => {
 					return (
-						<Instance>
+						<Instance key = {instance}>
 							<h3>Game World {instance}</h3>
 							<p># / 10 Players</p>
-							<button>Join!</button>
+							<Link to = {`/game/${instance}`}>Join!</Link>
 						</Instance>
 					);
 				})}
