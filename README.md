@@ -1,6 +1,7 @@
 # How to Run The Project
 
 in your console, enter `yarn dev`
+
 This will start the react development server as well as a nodemon'ed server
 
 # Project Tech Stack
