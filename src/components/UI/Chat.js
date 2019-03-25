@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 const ChatContainer = styled.div`
   height: 100%;
-  width: 60%;
-  padding: 12px;
+  width: 70%;
   background-color: #c8c8c8;
   border-radius: 10px;
 `;
@@ -11,7 +10,8 @@ const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  height: 85%;
+  height: 80%;
+  padding: 10px;
   * {
     margin: 2px;
   }
@@ -19,6 +19,7 @@ const MessageContainer = styled.div`
 const InputForm = styled.form`
   display: flex;
   flex-direction: row;
+  padding: 0 10px 20px 10px;
 `;
 const ChatInput = styled.input`
   width: 90%;
