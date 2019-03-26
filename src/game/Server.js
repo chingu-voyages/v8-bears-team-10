@@ -1,65 +1,62 @@
 
 "use strict";
 const Event = require('./EventBase');
-const Connection = require("./ConnectionManager");
+const IO = require('socket.io');
+
 
 /*
-    Server is created by the GameManager and handles all incomming connections.
+    This Module starts the server and handles incomming and disconnected connections.
 
 */
 
 class Server {
-    constructor(serverID,port,gameManager,ioSocket){
+    constructor(serverID,port,gameManager){
         this.serverID = serverID;
         this.port = port;
-        this.server;
+        this.sockets;
         this.connections = [];
-        this.io = ioSocket;
         this.gm = gameManager;
+        this.listeners = [];
         this.onConnect = this.onConnect.bind(this);
         this.onDisconnect = this.onDisconnect.bind(this);
+        this.start = this.start.bind(this);
+        
     }
 
+/*
+    Init is where Events are setup and data is loaded.
+*/
 init(){
+    console.log("init Server");
+    this.gm.getEventHandler().createEvent("Connection", this);
+    this.gm.getEventHandler().createEvent("Disconnected", this); 
 
-    //Setup Event Publishers
-    this.gm.getEventHandler().createEvent("onConnection",{socket,server});
-    
-
-    //Setup Event Listeners
-    this.gm.getEventHandler().subscribe("PlayerCreated", this.onConnection);
-
-    
+    this.gm.getEventHandler().subscribe("Start", this.start);
 }
 
+/*
+    Start is where the module with listen to listeners
+*/
 start(){
     //Start listening for connections
-    this.server = this.io.listen(this.port)
+    console.log("Starting server");
+    this.sockets = IO.listen(this.port)
     console.log(`${this.serverID} listening for connections on ${this.port}`);
-    this.server.on("connect" , this.onConnect);
+
+    //Handler Listener for incomming connection
+    this.sockets.on("connect" , (socket) => { return this.onConnect(socket);});
+    this.sockets.on("disconnect", (socket) =>{ return this.onDisconnect(socket)})
 }
 
-
-
-//Creates a new connection and stores it in @param connections.
-onConnect(connection){
-    let ip = connection.socket.handshake.address;
-    console.log(`New connection from ${ip}`);
-    this.connections.push(connection);
+//Broadcast a new Connection event.
+onConnect(socket){
+    this.gm.getEventHandler().broadCast("Connection",socket);
 }
 
-//Removes connection from @param connections
-onDisconnect(connection){
+//Lets the game know a socket has been disconnected.
+onDisconnect(socket){
     console.log("Disconnected"); 
-    this.connections.splice(this.connections.findIndex((conn, index)=>{
-        if(connection.socket === conn.socket ){
-            return index;
-        }
-    }, connection),1);
-}
-
-onConnection(){
-    console.log("New Connection!")
+    this.gm.getEventHandler().broadCast("Disconnected",socket);
 }
 
 }
