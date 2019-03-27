@@ -58,12 +58,14 @@ const Title = styled.div`
 	cursor: pointer;
 `;
 const Container = styled.div`
-	display: ${props => (props.visible ? 'block' : 'none')};
+	display: ${props => (props.visible ? 'flex' : 'none')};
+	flex-direction: column;
 	min-width: 100%;
 	max-height: 100%;
 	justify-self: center;
 	grid-area: ${props => props.type};
 	opacity: 0.75;
+	position: relative;
 `;
 
 const Content = styled.div`

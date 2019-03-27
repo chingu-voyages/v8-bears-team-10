@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// Component Imports
-import Bar from './components/UI/Bar/Bar';
-import ModalContainer from './components/UI/Modal/ModalContainer';
+
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import LandingPage from './components/LandingPage/LandingPage';
+import Game from './components/Game/Game';
 
 class App extends Component {
 	render() {
 		return (
-			<Container className="App">
-				<GameView />
-				<Bar />
+			<Router>
+				<Container className="App">
+					<Route path="/" exact component={LandingPage} />
 
-				<ModalContainer />
-			</Container>
+					<Route
+						path="/game/:id"
+						component ={Game}
+					/>
+				</Container>
+			</Router>
 		);
 	}
 }
@@ -21,16 +26,11 @@ export default App;
 
 const Container = styled.div`
 	max-width: 1200px;
-	margin: 10px auto;
 	background: #f7f7f7;
-	height: calc(100vh - 20px);
+	height: calc(100vh);
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	margin: 10px auto 0 auto;
 `;
 
-const GameView = styled.div`
-	border: 1px solid gray;
-	display: flex;
-	flex: 1;
-`;
