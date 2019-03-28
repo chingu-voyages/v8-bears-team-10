@@ -33,11 +33,10 @@ class EventHandler {
 */
     broadCast(name,data){
         if(this.eventList[name]){
-            console.log(this.eventList[name]);
             this.eventList[name].fire(data);
         }
         else 
-            console.log("Nobody is listening");
+            console.log(`Nobody is listening for ${name}`);
     }
 }
 module.exports = EventHandler;

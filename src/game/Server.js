@@ -30,6 +30,7 @@ class Server {
 Start(){
     console.log("Starting Server");
     this.server = IO.listen(this.port);
+    console.log(this.server.emit);
     console.log(`${this.serverID} listening for connections on ${this.port}`);
 
     this.server.on("connect" , this.playerConnected);
@@ -41,7 +42,7 @@ Start(){
 */
 //Broadcast a new Connection event.
 playerConnected(socket){
-    this.gm.broadCast("PlayerConnected", socket);
+        this.gm.broadCast("PlayerConnected", socket);
 }
 
 //Lets the game know a socket has been disconnected.
