@@ -7,19 +7,17 @@ class ConnectionManager{
     constructor(gameManager){  
         this.gm = gameManager;   
         //Subscribe to Events
-        this.onConnection = this.onConnection.bind(this);
+        this.playerConnection = this.playerConnection.bind(this);
     }
 
-    init(){
-        //Setup Events
-        //Setup Event Listeners
-        this.gm.getEventHandler().subscribe("Connection", this.onConnection)
-
+    Start(){
+        this.gm.listen("PlayerConnected",this.playerConnection);
     }
     
     
-    onConnection(data){
+    playerConnection(socket){
        console.log("Connection manager has received a new connection");
+       console.log(socket.id);
     }
 
 

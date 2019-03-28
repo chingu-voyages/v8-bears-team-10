@@ -2,12 +2,9 @@
     A utility class used to Mix to implement functionality of other classes without 
     direcly inheriting from them.
 */
+let MixIn = (superclass) => new MixInBuilder(superclass);
 
-let Mixin = (superclass) => new MixInBuilder(superclass);
-
-}
-
-class MixInBulder{
+class MixInBuilder{
     constructor(superclass){
         this._superclass = superclass;
     }

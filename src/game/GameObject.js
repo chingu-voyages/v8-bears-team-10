@@ -1,5 +1,5 @@
 /*
-
+    Base Class for all GameObjects
 */
 
 class GameObject {
@@ -12,6 +12,18 @@ class GameObject {
         this._name = name;
         this._position = position;
         this._active = true;
+    }
+
+    Init(){
+
+    }
+
+    Start(){
+
+    }
+
+    Update(){
+        console.log("I can update!");
     }
 }
 
