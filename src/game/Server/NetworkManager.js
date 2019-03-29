@@ -20,10 +20,8 @@ class NetworkManager {
        
     }
 
-    handleClientMsg(data){
-       
+    handleClientMsg(data){  
         console.log(data);
-
     }
 
     registerConnection(socket){
