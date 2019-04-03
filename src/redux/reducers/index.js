@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { gameState } from './reducers';
+import { gameState, userState } from './reducers';
 
 export default combineReducers({
-	gameState: gameState
+	gameState: gameState,
+	userState: userState
 });

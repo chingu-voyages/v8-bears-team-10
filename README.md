@@ -1,3 +1,24 @@
+# How to Run The Project
+
+in your console, enter `yarn dev`
+
+This will start the react development server as well as a nodemon'ed server
+
+# Project Tech Stack
+
+## Frontend 
+
+- React ( with Create React App )
+- Redux
+- Styled Components
+
+## Backend
+
+- Express.js
+- Database
+- Socket.io
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

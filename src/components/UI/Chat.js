@@ -35,10 +35,7 @@ const SendButton = styled.button`
 function Chat() {
   return (
     <ChatContainer>
-      <MessageContainer>
-        <p> [timestamp][username]: hi </p>
-        <p> [timestamp][username]: Bye </p>
-      </MessageContainer>
+      <MessageContainer />
       <InputForm
         onSubmit={e => {
           e.stopPropagation();

@@ -62,12 +62,30 @@ const Title = styled.div`
   cursor: pointer;
 `;
 const Container = styled.div`
+<<<<<<< HEAD
   display: ${props => (props.visible ? "block" : "none")};
   min-width: 100%;
   max-height: 100%;
   justify-self: center;
   grid-area: ${props => props.type};
   opacity: 0.75;
+||||||| merged common ancestors
+	display: ${props => (props.visible ? 'block' : 'none')};
+	min-width: 100%;
+	max-height: 100%;
+	justify-self: center;
+	grid-area: ${props => props.type};
+	opacity: 0.75;
+=======
+	display: ${props => (props.visible ? 'flex' : 'none')};
+	flex-direction: column;
+	min-width: 100%;
+	max-height: 100%;
+	justify-self: center;
+	grid-area: ${props => props.type};
+	opacity: 0.75;
+	position: relative;
+>>>>>>> b68cfedb3450a5fc4aeaa13d7287d35723169c7f
 `;
 
 const Content = styled.div`
